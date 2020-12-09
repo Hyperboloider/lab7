@@ -8,6 +8,8 @@ using namespace std;
 void generate(int*, int);
 float negative_av(int*, int);
 void multiply(int*, float*, int, float);
+void output(int*, int);
+void output(float*, int);
 
 int main()
 {
@@ -20,6 +22,10 @@ int main()
     generate(C, 20);
     coeff = negative_av(C, 20);
     multiply(C, F, 20, coeff);
+    output(C, 20);
+    cout << coeff << endl;
+    output(F, 10);
+    
 
     return 0;
 }
@@ -29,10 +35,8 @@ void generate(int arr[], int arr_size)
     for (int i = 0; i < arr_size; i++)
     {
         arr[i] = rand()%21 -10;
-        cout << arr[i] << "\t";
     }
     
-    cout << "\n";
 }
 
 float negative_av(int arr[], int arr_size)
@@ -47,7 +51,6 @@ float negative_av(int arr[], int arr_size)
             counter++;
         }
     }
-    cout<< fabs(sum)/counter << endl;
     return fabs(sum)/counter;
 }
 
@@ -59,7 +62,26 @@ void multiply(int arr_from[], float arr_to[], int arr_size, float coeff)
     for (int i = 0; i < arr_size/2; i++)
     {
         arr_to[i] = *arr_ptr * coeff;
-        cout << arr_to[i] << "\t\t";
         arr_ptr += 2;
     }
+}
+
+void output(int arr[], int arr_size)
+{
+    for (int i = 0; i < arr_size; i++)
+    {
+        cout << arr[i] << "  ";
+    }
+
+    cout << endl;
+}
+
+void output(float arr[], int arr_size)
+{
+    for (int i = 0; i < arr_size; i++)
+    {
+        cout << arr[i] << "  ";
+    }
+
+    cout << endl;
 }
